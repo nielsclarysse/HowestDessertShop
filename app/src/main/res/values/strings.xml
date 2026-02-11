@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SweetDroid Delights Shop</string>
+    <string name="back_button">Back</string>
+    <string name="home_label">Home</string>
+    <string name="shop_label">Desserts</string>
+    <string name="welcome_text">Welcome at the SweetDroid Delights Shop</string>
+    <string name="description_text">
+        Craving something sweet? You’ve come to the right place! At SweetDroid Delights,
+        we serve up the most delicious treats, from fluffy cupcakes to crunchy KitKats,
+        all with an extra touch of Android magic.\n\n
+        Tap, swipe, and indulge—because every dessert is a byte-sized delight! \n\n
+        Go ahead, treat yourself! Your perfect snack is just a tap away.
+    </string>
+</resources>

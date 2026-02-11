@@ -1,0 +1,30 @@
+[
+  {
+    "productName": "Cupcake",
+    "imageFile": "cupcake",
+    "description": "A tiny, fluffy cake baked in a cup, topped with sweet frosting and sprinkles. A bite-sized delight!",
+    "size": 500,
+    "price": 5.0
+  },
+  {
+    "productName": "Donut",
+    "imageFile": "donut",
+    "description": "A soft, ring-shaped pastry, deep-fried to perfection and often glazed or sprinkled. A classic treat!",
+    "size": 250,
+    "price": 10.0
+  },
+  {
+    "productName": "Eclair",
+    "imageFile": "eclair",
+    "description": "A light, elongated pastry filled with creamy custard and topped with rich chocolate. Fancy and delicious!",
+    "size": 250,
+    "price": 15.0
+  },
+  {
+    "productName": "Froyo",
+    "imageFile": "froyo",
+    "description": "A cool, tangy frozen yogurt treat, healthier than ice cream but just as fun with endless toppings!",
+    "size": 50,
+    "price": 20.50
+  }
+]
