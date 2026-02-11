@@ -32,8 +32,20 @@ fun HomeScreen(
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
     ) {
-
+        ShopImage()
     }
+}
+
+@Composable
+fun ShopImage() {
+    Image(
+        painter = painterResource(id = R.drawable.sweetdroid_delight),
+        contentDescription = "This is an image of the shop!",
+        modifier = Modifier
+            .height(250.dp)
+            .fillMaxWidth(),
+        contentScale = ContentScale.Crop
+    )
 }
 
 @Preview(showBackground = true)
