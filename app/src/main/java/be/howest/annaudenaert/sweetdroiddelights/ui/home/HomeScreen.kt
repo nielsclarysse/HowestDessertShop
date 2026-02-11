@@ -2,16 +2,19 @@ package be.howest.annaudenaert.sweetdroiddelights.ui.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -28,11 +31,12 @@ fun HomeScreen(
 ) {
     Column(
         modifier = modifier
-            .padding(16.dp)
             .fillMaxSize()
+            .padding(16.dp)
             .verticalScroll(rememberScrollState())
     ) {
         ShopImage()
+        OrderButton(onOrderDessertClick)
     }
 }
 
@@ -42,10 +46,21 @@ fun ShopImage() {
         painter = painterResource(id = R.drawable.sweetdroid_delight),
         contentDescription = "This is an image of the shop!",
         modifier = Modifier
-            .height(250.dp)
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .height(250.dp),
         contentScale = ContentScale.Crop
     )
+}
+
+@Composable
+fun OrderButton(onClick: () -> Unit) {
+    Button(
+        onClick = onClick,
+        modifier = Modifier.fillMaxWidth(),
+        shape = RectangleShape
+    ) {
+        Text(text = "ORDER A DESSERT!")
+    }
 }
 
 @Preview(showBackground = true)
