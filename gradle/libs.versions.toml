@@ -39,6 +39,7 @@ junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 junitJunit = "4.12"
+uiText = "1.10.2"
 
 [libraries]
 # Core
@@ -100,6 +101,7 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 
 hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "hilt" }
 junit-junit = { group = "junit", name = "junit", version.ref = "junitJunit" }
+androidx-compose-ui-text = { group = "androidx.compose.ui", name = "ui-text", version.ref = "uiText" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

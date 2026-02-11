@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "be.howest.annaudenaert.sweetdroiddelights"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "be.howest.annaudenaert.sweetdroiddelights"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -68,6 +68,7 @@ dependencies {
     implementation(libs.androidx.material3)
 
     implementation(libs.androidx.compose.navigation)
+    implementation(libs.androidx.compose.ui.text)
 
     //Testing
     testImplementation(libs.junit)
