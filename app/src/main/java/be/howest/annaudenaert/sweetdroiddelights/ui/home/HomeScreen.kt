@@ -37,6 +37,7 @@ fun HomeScreen(
     ) {
         ShopImage()
         OrderButton(onOrderDessertClick)
+        ShopDescription()
     }
 }
 
@@ -61,6 +62,27 @@ fun OrderButton(onClick: () -> Unit) {
     ) {
         Text(text = "ORDER A DESSERT!")
     }
+}
+
+@Composable
+fun ShopDescription() {
+    Spacer(modifier = Modifier.height(24.dp))
+    Text(
+        text = "Craving something sweet? You’ve come to the right place! At SweetDroid Delights, we serve up the most delicious treats, from fluffy cupcakes to crunchy KitKats, all with an extra touch of Android magic.",
+        modifier = Modifier.fillMaxWidth()
+    )
+
+    Spacer(modifier = Modifier.height(24.dp))
+    Text(
+        text = "Tap, swipe, and indulge—because every dessert is a byte-sized delight!",
+        modifier = Modifier.fillMaxWidth()
+    )
+
+    Spacer(modifier = Modifier.height(24.dp))
+    Text(
+        text = "Go ahead, treat yourself! Your perfect snack is just a tap away.",
+        modifier = Modifier.fillMaxWidth()
+    )
 }
 
 @Preview(showBackground = true)
