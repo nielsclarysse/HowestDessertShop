@@ -1,5 +1,6 @@
 package be.howest.annaudenaert.sweetdroiddelights.ui.home
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -15,5 +16,6 @@ class HomeViewModel : ViewModel() {
 
     fun onSubscribeClicked() {
         _uiState.update { it.copy(isSubscribed = true) }
+        Log.d("HomeViewModel", "Subscription successful, email: ${_uiState.value.emailAddress}")
     }
 }

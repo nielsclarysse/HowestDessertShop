@@ -1,36 +1,41 @@
 package be.howest.annaudenaert.sweetdroiddelights.ui.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
 import be.howest.annaudenaert.sweetdroiddelights.ui.home.HomeScreen
+import be.howest.annaudenaert.sweetdroiddelights.ui.home.HomeViewModel
 
 @Composable
 fun SweetDroidNavGraph(
+    modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    modifier: Modifier = Modifier
+    homeViewModel: HomeViewModel = viewModel()
 ) {
+    val homeUiState by homeViewModel.uiState.collectAsStateWithLifecycle()
+
     NavHost(
         navController = navController,
         startDestination = "home",
         modifier = modifier
     ) {
-
         composable("home") {
             HomeScreen(
-                onOrderDessertClick = { navController.navigate("desserts") },
-                onSubscribeClick = {}
+                uiState = homeUiState,
+                onEmailChanged = { homeViewModel.onEmailChanged(it)},
+                onSubscribeClicked = homeViewModel::onSubscribeClicked,
+                onOrderDessertClicked = { navController.navigate("desserts") }
             )
         }
 
         composable("desserts") {
            // add your desserts screen here
         }
-
     }
 }

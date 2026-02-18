@@ -11,4 +11,10 @@
         Tap, swipe, and indulge—because every dessert is a byte-sized delight! \n\n
         Go ahead, treat yourself! Your perfect snack is just a tap away.
     </string>
+    <string name="order_button_label">ORDER A DESSERT!</string>
+    <string name="subscribe_title">Subscribe to our newsletter</string>
+    <string name="subscribed_title">"Thanks for subscribing!"</string>
+    <string name="email_label">Email address</string>
+    <string name="email_placeholder">example@sweetdroid.com</string>
+    <string name="subscribe_button_label">SUBSCRIBE</string>
 </resources>

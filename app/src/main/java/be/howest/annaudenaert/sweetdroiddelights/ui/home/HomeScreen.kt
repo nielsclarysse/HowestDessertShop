@@ -37,8 +37,10 @@ import be.howest.annaudenaert.sweetdroiddelights.ui.theme.AppTheme
 
 @Composable
 fun HomeScreen(
-    onOrderDessertClick: () -> Unit,
-    onSubscribeClick: () -> Unit,
+    uiState: HomeUiState,
+    onEmailChanged: (String) -> Unit,
+    onSubscribeClicked: () -> Unit,
+    onOrderDessertClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -48,9 +50,20 @@ fun HomeScreen(
             .verticalScroll(rememberScrollState())
     ) {
         ShopImage()
-        OrderButton(onOrderDessertClick)
+
+        OrderButton(onOrderDessertClicked)
+
         ShopDescription()
-        SubscriptionComponent(onSubscribeClick)
+
+        if (!uiState.isSubscribed) {
+            SubscriptionComponent(
+                email = uiState.emailAddress,
+                onEmailChanged = onEmailChanged,
+                onSubscribeClicked = onSubscribeClicked
+            )
+        } else {
+            SubscribedComponent();
+        }
     }
 }
 
@@ -58,7 +71,7 @@ fun HomeScreen(
 fun ShopImage() {
     Image(
         painter = painterResource(id = R.drawable.sweetdroid_delight),
-        contentDescription = "This is an image of the shop!",
+        contentDescription = stringResource(id = R.string.welcome_text),
         modifier = Modifier
             .fillMaxWidth()
             .height(250.dp),
@@ -67,13 +80,15 @@ fun ShopImage() {
 }
 
 @Composable
-fun OrderButton(onClick: () -> Unit) {
+fun OrderButton(
+    onOrderClicked: () -> Unit
+) {
     Button(
-        onClick = onClick,
+        onClick = onOrderClicked,
         modifier = Modifier.fillMaxWidth(),
         shape = RectangleShape
     ) {
-        Text(text = "ORDER A DESSERT!")
+        Text(text = stringResource(id = R.string.order_button_label))
     }
 }
 
@@ -81,27 +96,17 @@ fun OrderButton(onClick: () -> Unit) {
 fun ShopDescription() {
     Spacer(modifier = Modifier.height(24.dp))
     Text(
-        text = "Craving something sweet? You’ve come to the right place! At SweetDroid Delights, we serve up the most delicious treats, from fluffy cupcakes to crunchy KitKats, all with an extra touch of Android magic.",
-        modifier = Modifier.fillMaxWidth()
-    )
-
-    Spacer(modifier = Modifier.height(24.dp))
-    Text(
-        text = "Tap, swipe, and indulge—because every dessert is a byte-sized delight!",
-        modifier = Modifier.fillMaxWidth()
-    )
-
-    Spacer(modifier = Modifier.height(24.dp))
-    Text(
-        text = "Go ahead, treat yourself! Your perfect snack is just a tap away.",
+        text = stringResource(id = R.string.description_text),
         modifier = Modifier.fillMaxWidth()
     )
 }
 
 @Composable
-fun SubscriptionComponent(onClick: () -> Unit) {
-    var email by remember { mutableStateOf("") }
-
+fun SubscriptionComponent(
+    email: String,
+    onEmailChanged: (String) -> Unit,
+    onSubscribeClicked: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -110,32 +115,42 @@ fun SubscriptionComponent(onClick: () -> Unit) {
     ) {
         Spacer(modifier = Modifier.height(24.dp))
         Text(
-            text = "Subscribe to our newsletter",
+            text = stringResource(id = R.string.subscribe_title),
             fontWeight = FontWeight.Bold
         )
 
         Spacer(modifier = Modifier.height(16.dp))
         TextField(
             value = email,
-            onValueChange = { email = it },
+            onValueChange = onEmailChanged,
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Email,
                 imeAction = ImeAction.Done
             ),
-            label = { Text("Email address") },
-            placeholder = { Text("example@sweetdroid.com") },
+            label = { Text(stringResource(id = R.string.email_label)) },
+            placeholder = { Text(stringResource(id = R.string.email_placeholder)) },
             modifier = Modifier.fillMaxWidth(),
             singleLine = true
         )
 
         Button(
-            onClick = onClick,
+            onClick = onSubscribeClicked,
             modifier = Modifier.fillMaxWidth(),
-            shape = RectangleShape
+            shape = RectangleShape,
+            enabled = email.isNotEmpty()
         ) {
-            Text(text = "SUBSCRIBE")
+            Text(text = stringResource(id = R.string.subscribe_button_label))
         }
     }
+}
+
+@Composable
+fun SubscribedComponent() {
+    Text(
+        text = stringResource(id = R.string.subscribed_title),
+        modifier = Modifier.padding(top = 24.dp),
+        fontWeight = FontWeight.Bold
+    )
 }
 
 @Preview(showBackground = true)
@@ -143,8 +158,10 @@ fun SubscriptionComponent(onClick: () -> Unit) {
 fun HomeScreenPreview() {
     AppTheme {
         HomeScreen(
-            onOrderDessertClick = {},
-            onSubscribeClick = {}
+            uiState = HomeUiState(),
+            onEmailChanged = {},
+            onSubscribeClicked = {},
+            onOrderDessertClicked = {}
         )
     }
 }
