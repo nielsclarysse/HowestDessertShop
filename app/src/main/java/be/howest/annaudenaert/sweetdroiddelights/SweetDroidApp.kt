@@ -22,7 +22,8 @@ fun SweetDroidApp(){
             modifier = Modifier.Companion.fillMaxSize(),
             topBar = {
                 SweetDroidAppBar(
-                    appName = R.string.app_name)
+                    appName = R.string.app_name
+                )
             },
             bottomBar = {
                 SweetDroidBottomBar(
@@ -49,6 +50,7 @@ fun SweetDroidApp(){
     showBackground = true,
     device = Devices.PIXEL_5,
 )
+
 @Composable
 fun SweetDroidAppPreview() {
     AppTheme {

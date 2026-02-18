@@ -17,4 +17,6 @@
     <string name="email_label">Email address</string>
     <string name="email_placeholder">example@sweetdroid.com</string>
     <string name="subscribe_button_label">Enroll</string>
+    <string name="dessert">Dessert</string>
+    <string name="free_shipping">Free shipping</string>
 </resources>

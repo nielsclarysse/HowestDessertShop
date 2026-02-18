@@ -9,6 +9,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import be.howest.annaudenaert.sweetdroiddelights.ui.desserts.DessertListScreen
+import be.howest.annaudenaert.sweetdroiddelights.ui.desserts.DessertListViewModel
 import be.howest.annaudenaert.sweetdroiddelights.ui.home.HomeScreen
 import be.howest.annaudenaert.sweetdroiddelights.ui.home.HomeViewModel
 
@@ -16,26 +18,31 @@ import be.howest.annaudenaert.sweetdroiddelights.ui.home.HomeViewModel
 fun SweetDroidNavGraph(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    homeViewModel: HomeViewModel = viewModel()
+    homeViewModel: HomeViewModel = viewModel(),
+    dessertListViewModel : DessertListViewModel = viewModel()
 ) {
     val homeUiState by homeViewModel.uiState.collectAsStateWithLifecycle()
+    val dessertListUiState by dessertListViewModel.uiState.collectAsStateWithLifecycle()
 
     NavHost(
         navController = navController,
-        startDestination = "home",
+        startDestination = "desserts", // TODO : Change this!
         modifier = modifier
     ) {
         composable("home") {
             HomeScreen(
                 uiState = homeUiState,
-                onEmailChanged = { homeViewModel.onEmailChanged(it)},
+                onEmailChanged = { homeViewModel.onEmailChanged(it) },
                 onSubscribeClicked = homeViewModel::onSubscribeClicked,
                 onOrderDessertClicked = { navController.navigate("desserts") }
             )
         }
 
         composable("desserts") {
-           // add your desserts screen here
+            DessertListScreen(
+                uiState = dessertListUiState,
+                onDessertClicked = { dessertListViewModel.onDessertClicked(it) }
+            )
         }
     }
 }
