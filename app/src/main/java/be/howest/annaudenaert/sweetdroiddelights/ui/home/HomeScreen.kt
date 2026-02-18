@@ -129,7 +129,9 @@ fun SubscriptionComponent(
             ),
             label = { Text(stringResource(id = R.string.email_label)) },
             placeholder = { Text(stringResource(id = R.string.email_placeholder)) },
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .testTag("email_input"),
             singleLine = true
         )
 

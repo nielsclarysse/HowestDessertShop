@@ -16,5 +16,5 @@
     <string name="subscribed_title">"Thanks for subscribing!"</string>
     <string name="email_label">Email address</string>
     <string name="email_placeholder">example@sweetdroid.com</string>
-    <string name="subscribe_button_label">SUBSCRIBE</string>
+    <string name="subscribe_button_label">Enroll</string>
 </resources>
