@@ -44,5 +44,15 @@ fun SweetDroidNavGraph(
                 onDessertClicked = { dessertId -> navController.navigate("dessert/${dessertId}") }
             )
         }
+
+        composable(Screen.DessertDetail.route) { backStackEntry ->
+            val dessertId = backStackEntry.arguments?.getInt("dessertId")!!
+            dessertDetailViewModel.loadDessert(dessertId)
+            DessertDetailScreen(
+                uiState = dessertDetailViewModel.uiState
+            )
+        }
+
+        //voeg hier routes toe naar andere schermen
     }
 }
