@@ -15,6 +15,7 @@ import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
 import be.howest.annaudenaert.sweetdroiddelights.R
+import com.google.android.engage.shopping.datamodel.ShoppingCart
 
 @Composable
 fun SweetDroidBottomBar(

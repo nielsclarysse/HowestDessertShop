@@ -30,7 +30,7 @@ fun SweetDroidNavGraph(
 
     NavHost(
         navController = navController,
-        startDestination = "desserts", // TODO : Change this!
+        startDestination = "home", // TODO : Change this!
         modifier = modifier
     ) {
         composable("home") {

@@ -41,6 +41,8 @@ espressoCore = "3.6.1"
 junitJunit = "4.12"
 uiText = "1.10.2"
 ui = "1.10.3"
+navigationTesting = "2.9.7"
+engageCore = "1.5.11"
 
 [libraries]
 # Core
@@ -104,6 +106,8 @@ hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", vers
 junit-junit = { group = "junit", name = "junit", version.ref = "junitJunit" }
 androidx-compose-ui-text = { group = "androidx.compose.ui", name = "ui-text", version.ref = "uiText" }
 androidx-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "ui" }
+androidx-navigation-testing = { group = "androidx.navigation", name = "navigation-testing", version.ref = "navigationTesting" }
+engage-core = { group = "com.google.android.engage", name = "engage-core", version.ref = "engageCore" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

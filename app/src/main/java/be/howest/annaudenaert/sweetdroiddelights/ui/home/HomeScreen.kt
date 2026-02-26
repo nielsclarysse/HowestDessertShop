@@ -48,6 +48,7 @@ fun HomeScreen(
             .fillMaxSize()
             .padding(16.dp)
             .verticalScroll(rememberScrollState())
+            .testTag("home_screen")
     ) {
         ShopImage()
 

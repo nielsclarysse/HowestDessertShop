@@ -70,6 +70,8 @@ dependencies {
     implementation(libs.androidx.compose.navigation)
     implementation(libs.androidx.compose.ui.text)
     implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.navigation.testing)
+    implementation(libs.engage.core)
 
     //Testing
     testImplementation(libs.junit)

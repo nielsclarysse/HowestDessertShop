@@ -17,13 +17,16 @@ sealed class Screen(
 
     data object DessertDetail: Screen("dessert/{dessertId}", R.string.shop_label, Icons.Filled.Search)
 
+    data object ShoppingCart: Screen("shopping_cart", R.string.shopping_cart_label, Icons.Filled.Search)
+
+
     //vul zelf aan met de andere schermen (vergeet hier niet om eerst de composables aan te maken)
 }
 
 val screens = listOf(
     Screen.Home,
     Screen.Desserts,
-    /*Screen.ShoppingCart,
-    Screen.PickupLocation,
+    Screen.ShoppingCart,
+    /*Screen.PickupLocation,
     Screen.Profile*/
 )

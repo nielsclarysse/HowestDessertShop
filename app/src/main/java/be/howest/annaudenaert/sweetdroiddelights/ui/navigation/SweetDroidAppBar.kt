@@ -21,7 +21,8 @@ import be.howest.annaudenaert.sweetdroiddelights.R
 @Composable
 fun SweetDroidAppBar(
     canNavigateBack: Boolean,
-    navigateUp: () -> Unit
+    navigateUp: () -> Unit,
+    shareWithFriends: () -> Unit
 ) {
     TopAppBar(
         title = { Text(stringResource(id = R.string.app_name)) },

@@ -3,6 +3,7 @@
     <string name="back_button">Back</string>
     <string name="home_label">Home</string>
     <string name="shop_label">Desserts</string>
+    <string name="shopping_cart_label">Cart</string>
     <string name="welcome_text">Welcome at the SweetDroid Delights Shop</string>
     <string name="description_text">
         Craving something sweet? You’ve come to the right place! At SweetDroid Delights,
