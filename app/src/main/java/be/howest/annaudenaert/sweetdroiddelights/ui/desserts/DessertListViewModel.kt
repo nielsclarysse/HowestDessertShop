@@ -19,8 +19,4 @@ class DessertListViewModel : ViewModel() {
         val desserts = FakeDataSource().loadDesserts()
         _uiState.value = uiState.value.copy(desserts = desserts)
     }
-
-    fun onDessertClicked(dessert: Dessert) {
-        Log.d("DessertListViewModel", "Dessert clicked, id: ${dessert.id}")
-    }
 }

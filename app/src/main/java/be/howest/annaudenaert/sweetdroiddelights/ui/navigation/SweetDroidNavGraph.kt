@@ -41,7 +41,7 @@ fun SweetDroidNavGraph(
         composable("desserts") {
             DessertListScreen(
                 uiState = dessertListUiState,
-                onDessertClicked = { dessertListViewModel.onDessertClicked(it) }
+                onDessertClicked = { dessertId -> navController.navigate("dessert/${dessertId}") }
             )
         }
     }
