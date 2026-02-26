@@ -112,4 +112,8 @@ class FakeDataSource() {
             )
         )
     }
+
+    fun getDessertById(dessertId: Int): Dessert? {
+        return loadDesserts().find { it.id == dessertId }
+    }
 }

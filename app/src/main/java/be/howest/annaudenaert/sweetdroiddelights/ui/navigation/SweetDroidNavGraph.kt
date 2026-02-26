@@ -11,6 +11,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import be.howest.annaudenaert.sweetdroiddelights.ui.desserts.DessertListScreen
 import be.howest.annaudenaert.sweetdroiddelights.ui.desserts.DessertListViewModel
+import be.howest.annaudenaert.sweetdroiddelights.ui.desserts.detail.DessertDetailScreen
+import be.howest.annaudenaert.sweetdroiddelights.ui.desserts.detail.DessertDetailViewModel
 import be.howest.annaudenaert.sweetdroiddelights.ui.home.HomeScreen
 import be.howest.annaudenaert.sweetdroiddelights.ui.home.HomeViewModel
 
@@ -19,10 +21,12 @@ fun SweetDroidNavGraph(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
     homeViewModel: HomeViewModel = viewModel(),
-    dessertListViewModel : DessertListViewModel = viewModel()
+    dessertListViewModel : DessertListViewModel = viewModel(),
+    dessertDetailViewModel : DessertDetailViewModel = viewModel()
 ) {
     val homeUiState by homeViewModel.uiState.collectAsStateWithLifecycle()
     val dessertListUiState by dessertListViewModel.uiState.collectAsStateWithLifecycle()
+    val dessertDetailUiState by dessertDetailViewModel.uiState.collectAsStateWithLifecycle()
 
     NavHost(
         navController = navController,
@@ -49,7 +53,7 @@ fun SweetDroidNavGraph(
             val dessertId = backStackEntry.arguments?.getInt("dessertId")!!
             dessertDetailViewModel.loadDessert(dessertId)
             DessertDetailScreen(
-                uiState = dessertDetailViewModel.uiState
+                uiState = dessertDetailUiState
             )
         }
 

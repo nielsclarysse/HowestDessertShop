@@ -69,6 +69,7 @@ dependencies {
 
     implementation(libs.androidx.compose.navigation)
     implementation(libs.androidx.compose.ui.text)
+    implementation(libs.androidx.compose.ui)
 
     //Testing
     testImplementation(libs.junit)
