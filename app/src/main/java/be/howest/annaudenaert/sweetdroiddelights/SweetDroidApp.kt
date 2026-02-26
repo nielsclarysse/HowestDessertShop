@@ -27,14 +27,8 @@ fun SweetDroidApp(){
             },
             bottomBar = {
                 SweetDroidBottomBar(
-                    onHomeClick = {
-                        navController.navigate("home"){
-                            popUpTo("home") {inclusive = true}
-                        }
-                    },
-                    onDessertsClick = {
-                        navController.navigate("desserts")
-                    }
+                    navController = navController,
+                    currentDestination = currentDestination
                 )
             }
         ) { innerPadding ->
