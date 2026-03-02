@@ -4,7 +4,7 @@ import be.howest.annaudenaert.sweetdroiddelights.data.local.datastore.SettingsDa
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class GetNewsletterSubscriptionStatusUseCase @Inject constructor(
+class GetSubscriptionStatusUseCase @Inject constructor(
     private val settingsDataStore: SettingsDataStore
 ) {
     operator fun invoke(): Flow<Boolean> {
