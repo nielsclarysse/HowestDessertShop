@@ -67,11 +67,25 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
+    implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
+    ksp(libs.hilt.compiler)
+
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
+
+    implementation(libs.androidx.preferences.datastore)
+    implementation(libs.retrofit)
+    implementation(libs.converter.moshi)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
+
     implementation(libs.androidx.compose.navigation)
     implementation(libs.androidx.compose.ui.text)
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.navigation.testing)
     implementation(libs.engage.core)
+    implementation(libs.androidx.datastore.core)
 
     //Testing
     testImplementation(libs.junit)
