@@ -2,8 +2,9 @@ package be.howest.annaudenaert.sweetdroiddelights.domain.usecases
 
 import be.howest.annaudenaert.sweetdroiddelights.data.local.datastore.SettingsDataStore
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class GetNewsletterSubscriptionStatusUseCase(
+class GetNewsletterSubscriptionStatusUseCase @Inject constructor(
     private val settingsDataStore: SettingsDataStore
 ) {
     operator fun invoke(): Flow<Boolean> {
