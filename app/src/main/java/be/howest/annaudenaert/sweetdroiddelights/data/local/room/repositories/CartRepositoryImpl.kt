@@ -1,13 +1,15 @@
 package be.howest.annaudenaert.sweetdroiddelights.data.local.room.repositories
 
+import android.util.Log
 import be.howest.annaudenaert.sweetdroiddelights.data.local.room.dao.CartDao
 import be.howest.annaudenaert.sweetdroiddelights.data.local.room.entity.CartItemEntity
 import be.howest.annaudenaert.sweetdroiddelights.domain.model.CartItem
 import be.howest.annaudenaert.sweetdroiddelights.domain.repositories.ICartRepository
+import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class CartRepositoryImpl(
+class CartRepositoryImpl @Inject constructor(
     private val cartDao: CartDao
 ) : ICartRepository {
 
@@ -19,6 +21,7 @@ class CartRepositoryImpl(
             quantity = 1
         )
         cartDao.insert(entity)
+        Log.d("CartRepositoryImpl", "Item added to cart: $item")
     }
 
     override fun getCartItems(): Flow<List<CartItem>> {

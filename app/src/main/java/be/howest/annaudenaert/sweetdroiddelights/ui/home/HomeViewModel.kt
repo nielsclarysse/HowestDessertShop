@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import be.howest.annaudenaert.sweetdroiddelights.domain.usecases.GetSubscriptionStatusUseCase
 import be.howest.annaudenaert.sweetdroiddelights.domain.usecases.SubscribeToNewsletterUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import jakarta.inject.Inject
+import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -32,7 +32,9 @@ class HomeViewModel @Inject constructor(
     }
 
     fun onEmailChanged(newEmail: String) {
-        _uiState.update {it.copy(emailAddress = newEmail)}
+        _uiState.update {
+            it.copy(emailAddress = newEmail)
+        }
     }
 
     fun onSubscribeClicked() {

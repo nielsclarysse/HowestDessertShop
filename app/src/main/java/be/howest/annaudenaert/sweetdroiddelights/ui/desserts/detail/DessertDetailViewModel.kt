@@ -6,7 +6,7 @@ import be.howest.annaudenaert.sweetdroiddelights.data.fake.FakeDataSource
 import be.howest.annaudenaert.sweetdroiddelights.domain.model.Dessert
 import be.howest.annaudenaert.sweetdroiddelights.domain.usecases.AddDessertToCartUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import jakarta.inject.Inject
+import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

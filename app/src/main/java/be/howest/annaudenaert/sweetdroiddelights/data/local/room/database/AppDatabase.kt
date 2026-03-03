@@ -7,7 +7,8 @@ import be.howest.annaudenaert.sweetdroiddelights.data.local.room.entity.CartItem
 
 @Database(
     entities = [CartItemEntity::class],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun cartDao(): CartDao
