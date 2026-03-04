@@ -4,6 +4,7 @@ import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.ui.graphics.vector.ImageVector
 import be.howest.annaudenaert.sweetdroiddelights.R
 
@@ -17,7 +18,7 @@ sealed class Screen(
 
     data object DessertDetail: Screen("dessert/{dessertId}", R.string.shop_label, Icons.Filled.Search)
 
-    data object ShoppingCart: Screen("shopping_cart", R.string.shopping_cart_label, Icons.Filled.Search)
+    data object ShoppingCart: Screen("shopping_cart", R.string.shopping_cart_label, Icons.Filled.ShoppingCart)
 
 
     //vul zelf aan met de andere schermen (vergeet hier niet om eerst de composables aan te maken)

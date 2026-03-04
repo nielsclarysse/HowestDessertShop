@@ -1,14 +1,17 @@
 package be.howest.annaudenaert.sweetdroiddelights.ui.navigation
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import be.howest.annaudenaert.sweetdroiddelights.ui.desserts.DessertListScreen
 import be.howest.annaudenaert.sweetdroiddelights.ui.desserts.DessertListViewModel
 import be.howest.annaudenaert.sweetdroiddelights.ui.desserts.detail.DessertDetailScreen
@@ -45,11 +48,14 @@ fun SweetDroidNavGraph(
         composable("desserts") {
             DessertListScreen(
                 uiState = dessertListUiState,
-                onDessertClicked = { dessertId -> navController.navigate("dessert/${dessertId}") }
+                onDessertClicked = { dessert -> navController.navigate("dessert/${dessert.id}") }
             )
         }
 
-        composable(Screen.DessertDetail.route) { backStackEntry ->
+        composable(
+            route = Screen.DessertDetail.route,
+            arguments = listOf(navArgument("dessertId") { type = NavType.IntType })
+        ) { backStackEntry ->
             val dessertId = backStackEntry.arguments?.getInt("dessertId")!!
             dessertDetailViewModel.loadDessert(dessertId)
             DessertDetailScreen(
